@@ -1,38 +1,223 @@
-.App {
+body {
+  font-size: 16px;
+  color: #3F3D56;
+  font-family: Roboto; }
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.navigation-wrapper .navigation-toggle .hamburger-toggle {
+  background-color: #3F3D56;
+  padding: .5rem;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  margin-top: 25px; }
+.navigation-wrapper .navigation-panel {
+  display: none;
+  visibility: hidden;
+  background-color: #3F3D56;
+  color: #fff;
+  padding: 1em;
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px; }
+  .navigation-wrapper .navigation-panel .link-item {
+    margin-bottom: 1em;
+    text-align: center;
+    padding: 0.5em; }
+    .navigation-wrapper .navigation-panel .link-item.active {
+      background-color: #B8DFD3; }
+      .navigation-wrapper .navigation-panel .link-item.active a {
+        color: #3F3D56; }
+    .navigation-wrapper .navigation-panel .link-item:hover {
+      background-color: #B8DFD3; }
+      .navigation-wrapper .navigation-panel .link-item:hover a {
+        color: #3F3D56; }
+    .navigation-wrapper .navigation-panel .link-item a {
+      color: #fff;
+      font-family: Roboto;
+      font-size: 1.2em;
+      text-decoration: none; }
+  .navigation-wrapper .navigation-panel:target {
+    display: block;
+    visibility: visible; }
+
+.page-body {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: max-content max-content auto;
+  overflow-x: hidden; }
+  .page-body > * {
+    grid-column-start: 2;
+    grid-column-end: 12; }
+  .page-body > .align-bottom {
+    align-self: flex-end; }
+  @media (min-width: 992px) {
+    .page-body {
+      grid-template-columns: minmax(0, 1fr) repeat(10, 100px) minmax(0, 1fr); } }
+
+.image-overflow-center {
+  width: calc(100% + 100px);
+  transform: translateX(-50px);
+  grid-column-start: 1; }
+
+.image-peak-right {
+  position: absolute;
+  right: 0;
+  z-index: -1; }
+
+.button-group.fw-m button {
+  width: 100%; }
+.button-group.align-bottom {
+  margin-top: 25px; }
+.button-group button {
+  margin: 1em 0; }
+.button-group .alternative-option {
   text-align: center;
-}
+  position: relative;
+  color: #B8DFD3;
+  font-weight: 600;
+  margin: 0.5em 0; }
+  .button-group .alternative-option::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background-color: #B8DFD3; }
+  .button-group .alternative-option::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background-color: #B8DFD3; }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.button-primary {
+  background-color: #CCF8EB;
+  border-radius: 36px;
+  border: none;
+  padding: 1rem;
+  color: #454754;
+  font-size: 0.875em;
+  font-weight: 600;
+  font-family: Roboto;
+  cursor: pointer;
+  transition: all 0.25s ease; }
+  .button-primary:hover {
+    background-color: #3F3D56;
+    color: #fff; }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+.button-alternative {
+  background-color: #3F3D56;
+  border-radius: 36px;
+  border: none;
+  padding: 1rem;
+  color: #fff;
+  font-size: 0.875em;
+  font-weight: 600;
+  font-family: Roboto;
+  cursor: pointer;
+  transition: all 0.25s ease; }
+  .button-alternative:hover {
+    background-color: #CCF8EB;
+    color: #454754; }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.page-header {
+  margin-top: 25px;
+  margin-bottom: 100px; }
+  .page-header .page-title {
+    font-family: Spectral;
+    font-size: 3em;
+    color: #3F3D56; }
+
+form.field-form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  flex-direction: column; }
+  form.field-form .fields {
+    flex: 1; }
+  form.field-form button[type="submit"] {
+    margin: 1em 0; }
+  form.field-form label {
+    display: block;
+    margin-bottom: 4em; }
+    form.field-form label .label-text {
+      margin-left: .5em;
+      font-family: Roboto;
+      font-size: 0.875em; }
+    form.field-form label input, form.field-form label textarea {
+      display: block;
+      margin-top: 1em;
+      width: 100%;
+      border-radius: 36px;
+      border: 2px solid rgba(63, 61, 86, 0.17);
+      padding: 1rem;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.05); }
+      form.field-form label input:focus, form.field-form label input:focus-visible, form.field-form label textarea:focus, form.field-form label textarea:focus-visible {
+        border: 2px solid #B8DFD3;
+        outline: 0; }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+        .page-body {
+          display:none;
+          visibility: hidden;
+        }
+  @media(max-width:992px) {
+    .not-mobile {
+      display:none;
+      visibility: hidden;
+    }
+
+    .page-body {
+      display: grid;
+      visibility: visible;
+    }
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*# sourceMappingURL=style.css.map */
